@@ -1,0 +1,6 @@
+{
+  "mobilenavmenu": {
+    "component": "MobileNavMenu",
+    "composition": "children"
+  }
+}
