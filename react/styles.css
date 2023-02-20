@@ -14,16 +14,21 @@ body {
 
 .navigationContainer {}
 
-.navigationWrapper {}
-
 .closeMobileNavButton {}
 
-.logoContainer {}
-
-.logoWrapper {}
+.logoLink {}
 
 .mobileLogo {}
+
+.miniCartContainer {}
 
 .childrenContainer {}
 
 .childrenWrapper {}
+
+.hamburgerWrapper:focus-visible,
+.closeMobileNavButton:focus-visible {
+    outline: 5px solid darkorange;
+    outline-offset: 0.5rem;
+    border-radius: 0.25rem;
+}
