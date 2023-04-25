@@ -3,10 +3,13 @@ import React, { ReactChildren, useRef, useEffect, useState } from 'react';
 
 // Styles
 import styles from "./styles.css";
+import { canUseDOM } from 'vtex.render-runtime';
 
 interface MobileNavMenuProps {
   children: ReactChildren | any
 }
+
+const closeMenuButtonClass = "eriksbikeshop-mobilenavmenu-1-x-closeMobileNavButton";
 
 const MobileNavMenu: StorefrontFunctionComponent<MobileNavMenuProps> = ({ children }) => {
   const openGate = useRef(true);
@@ -31,12 +34,17 @@ const MobileNavMenu: StorefrontFunctionComponent<MobileNavMenuProps> = ({ childr
   });
 
   const handleOpenNav = () => {
+    if (!canUseDOM) return;
     setOpenNav(true);
 
     // Timeout accounts for CSS transition / animation - LM
     setTimeout(() => {
       navRef.current.style.left = 0;
       overlayRef.current.style.opacity = 0.5;
+
+      // Focusing the Close Menu button assists non-sighted users by skipping to nav content - LM
+      const closeMenuButton: any = document.querySelector(`.${closeMenuButtonClass}`);
+      closeMenuButton.focus();
     }, 100);
   }
 
