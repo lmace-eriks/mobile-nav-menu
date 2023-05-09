@@ -82,12 +82,12 @@ const MobileNavMenu: StorefrontFunctionComponent<MobileNavMenuProps> = ({ childr
 
   const MobileNavOpenState = () => (<>
     <nav ref={navRef} className={styles.navigationContainer}>
-      <button aria-label="Close Navigation" onClick={handleCloseNav} className={styles.closeMobileNavButton}>X</button>
       <div className={styles.childrenContainer}>
         {childrenInDrawer}
       </div>
     </nav>
     <div onClick={handleCloseNav} ref={overlayRef} className={styles.mobileNavOverlay}></div>
+    <button aria-label="Close Navigation" onClick={handleCloseNav} className={styles.closeMobileNavButton}>X</button>
   </>);
 
   return (
